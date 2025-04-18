@@ -119,10 +119,11 @@ public class MainActivity extends AppCompatActivity {
                 builder.setIcon(android.R.drawable.ic_dialog_alert);
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        etName.setText("");
-                        etPrelim.setText("");
-                        etMidterm.setText("");
-                        etFinal.setText("");
+                        EditText[] etFields = new EditText[] {etName, etPrelim, etMidterm, etFinal};
+                        for(EditText etField : etFields){
+                            etField.setText("");
+                            etField.setError(null);
+                        }
                         tvStudentName.setText("");
                         tvSemGrade.setText("");
                         tvEquiv.setText("");
